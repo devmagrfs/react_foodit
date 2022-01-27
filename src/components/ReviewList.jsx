@@ -7,9 +7,7 @@ const formatDate = (value) => {
 }
 
 // ReviewList에서 날아온 데이터를 하나씩 뽑아내는 컴포넌트
-// 3. onDelete 함수는
 const ReviewListItem = ({ item, onDelete }) => {
-    // 2. onDelete 함수를 item.id 값으로 실행한다.
     const handleDeleteClick = () => onDelete(item.id);
 
     return (
@@ -20,7 +18,6 @@ const ReviewListItem = ({ item, onDelete }) => {
                 <p>{item.rating}</p>
                 <p>{formatDate(item.createdAt)}</p>
                 <p>{item.content}</p>
-                {/* 1. 사용자가 삭제 버튼을 누르면 handleDeleteClick 이 실행된다. */}
                 <button onClick={handleDeleteClick}>삭제</button>
             </div>
         </div>
@@ -32,8 +29,7 @@ const ReviewList = ({ items, onDelete }) => {
         <ul>
             {items.map((item) => {
                 return (
-                    <li>
-                        {/* 4. onDelete prop이다. */}
+                    <li key={item.id}>
                         <ReviewListItem item={item} onDelete={onDelete} />
                     </li>
                 )
