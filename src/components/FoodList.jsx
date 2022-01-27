@@ -1,4 +1,4 @@
-import './ReviewList.css';
+import './FoodList.css';
 
 // formatDate를 사람이 볼 수 있는 문자로 변환하는 코드
 const formatDate = (value) => {
@@ -7,13 +7,13 @@ const formatDate = (value) => {
 }
 
 // ReviewList에서 날아온 데이터를 하나씩 뽑아내는 컴포넌트
-const ReviewListItem = ({ item, onDelete }) => {
+const FoodListItem = ({ item, onDelete }) => {
     const { imgUrl, title, calorie, content, createdAt } = item;
     const handleDeleteClick = () => onDelete(item.id);
 
     return (
-        <div className="ReviewListItem">
-            <img className="ReviewListItem-img" src={imgUrl} alt={title}></img>
+        <div className="FoodListItem">
+            <img className="FoodListItem-img" src={imgUrl} alt={title}></img>
             <div>
                 <h1>{title}</h1>
                 <p>{calorie}</p>
@@ -25,13 +25,13 @@ const ReviewListItem = ({ item, onDelete }) => {
     )
 }
 
-const ReviewList = ({ items, onDelete }) => {
+const FoodList = ({ items, onDelete }) => {
     return (
         <ul>
             {items.map((item) => {
                 return (
                     <li key={item.id}>
-                        <ReviewListItem item={item} onDelete={onDelete} />
+                        <FoodListItem item={item} onDelete={onDelete} />
                     </li>
                 )
             })}
@@ -39,4 +39,4 @@ const ReviewList = ({ items, onDelete }) => {
     )
 }
 
-export default ReviewList;
+export default FoodList;
