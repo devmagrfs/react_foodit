@@ -1,5 +1,5 @@
-export async function getReviews() {
-    const response = await fetch('https://learn.codeit.kr/api/film-reviews');
+export async function getFoods() {
+    const response = await fetch('https://learn.codeit.kr/api/foods');
     const body = await response.json();
     return body;
 }
